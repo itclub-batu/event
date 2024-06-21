@@ -1,0 +1,21 @@
+RewriteEngine On
+
+# قاعدة لإعادة توجيه البحث عن Projects.html إلى cooming.html
+RewriteRule ^Projects\.html$ cooming.html [L]
+
+# قاعدة لتحويل الطلبات إلى ملفات HTML إذا لم تكن الملفات موجودة
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# إذا كان الملف المطلوب غير موجود
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# إذا كان الدليل المطلوب غير موجود
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# إعادة كتابة إلى 404.html
+RewriteRule ^(.*)$ 404.html [L]
+
+# إعادة توجيه من www إلى non-www
+RewriteCond %{HTTP_HOST} ^www\.example\.com [NC]
+RewriteRule ^(.*)$ http://example.com/$1 [L,R=301]
