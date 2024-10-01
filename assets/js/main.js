@@ -197,14 +197,3 @@
 
 })(jQuery);
 
-
-// document.addEventListener("DOMContentLoaded", function() {
-//     var redirects = {
-//         "Projects.html": "cooming.html"
-//     };
-    
-//     var path = window.location.pathname.split("/").pop();
-//     if (redirects[path]) {
-//         window.location.replace(redirects[path]);
-//     }
-// });
